@@ -1,29 +1,28 @@
-import Image from "next/image";
+import Link from "next/link";
 
 export default function Hero() {
     return (
-        <section className="hero md:mt-4">
-            <div className="py-8 md:py-12">
+        <div className="p-4 bg-gray-100 shadow-custom">
+            <div className="max-w-4xl mx-auto p-4">
                 <h1 className="text-4xl font-semibold">
-                    <span className="text-primary text-5xl">
+                    <span className="text-primary text-7xl">
                         Cake
                     </span><br />
                     is always a<br />
                     good idea<br />
                 </h1>
                 <p className="my-6 text-gray-500 text-sm">
-                    We make great cakes and are the first bakery in Istanbul to accept crypto payments!
+                    First bakery in Istanbul to accept crypto payments!
                 </p>
                 <div className="flex gap-4 text-sm">
-                    <button className="flex justify-center bg-primary uppercase flex items-center gap-2 text-white px-4 py-2 rounded-full">
+                    <Link href="/menu" className="flex justify-center items-center bg-primary uppercase text-white px-4 py-2 rounded-full hover:bg-primary-dark">
                         Order now
-
-                    </button>
-                    <button className="flex items-center border-0 gap-2 py-2 text-gray-600 font-semibold">
+                    </Link>
+                    <Link href="/about" className="flex items-center border-0 gap-2 py-2 text-gray-600 font-semibold">
                         Learn more
-                    </button>
+                    </Link>
                 </div>
             </div>
-        </section>
+        </div>
     );
 }

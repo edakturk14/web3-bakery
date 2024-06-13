@@ -1,39 +1,32 @@
-import Header from "@/components/layout/Header";
-import Hero from "@/components/layout/Hero";
-import HomeMenu from "@/components/layout/HomeMenu";
-import SectionHeaders from "@/components/layout/SectionHeaders";
+'use client'
 
+import Hero from "@/components/layout/Hero";
+import MenuItem from "@/components/layout/Menu";
+import SectionHeaders from "@/components/layout/SectionHeaders";
+import { useAccount } from "wagmi";
+
+import AboutUs from "@/components/layout/AboutUs";
+import { useCart } from "@/components/Cart";
 
 export default function Home() {
+  const account = useAccount();
+
+  const { addToCart, cartItemCount, bestSellerCartItems } = useCart();
+
   return (
-    <div className="w-full">
-      < Header />
+    <div>
       <Hero />
-      <HomeMenu />
-      <section className="text-center my-16" id="about">
-        <SectionHeaders
-          subHeader={'Our story'}
-          mainHeader={'About us'}
-        />
-        <div className="text-gray-500 max-w-md mx-auto mt-4 flex flex-col gap-4">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni minima odit recusandae. Illum ipsa non repudiandae? Eum ipsam iste quos suscipit tempora? Aperiam esse fugiat inventore laboriosam officiis quam rem!
-          </p>
-          <p>At consectetur delectus ducimus est facere iure molestias obcaecati quaerat vitae voluptate? Aspernatur dolor explicabo iste minus molestiae pariatur provident quibusdam saepe?</p>
-          <p>Laborum molestias neque nulla obcaecati odio quia quod reprehenderit sit vitae voluptates? Eos, tenetur.</p>
+      <div className="max-w-4xl mx-auto p-4">
+        <div className="text-center m-4">
+          <SectionHeaders subHeader="Check out" mainHeader="Our Best Sellers" />
         </div>
-      </section>
-      <section className="text-center my-8" id="contact">
-        <SectionHeaders
-          subHeader={'Don\'t hesitate to'}
-          mainHeader={'Contact us'}
-        />
-        <div className="mt-8">
-          <a className="text-4xl underline text-gray-500" href="tel:+46738123123">
-            +00 123 123 123
-          </a>
+        <div className="grid sm:grid-cols-3 gap-4 mt-2">
+          {bestSellerCartItems.map(item => (
+            <MenuItem key={item._id} {...item} addToCart={() => addToCart(item)} />
+          ))}
         </div>
-      </section>
+      </div>
+      <AboutUs />
     </div>
   );
 }

@@ -6,3 +6,52 @@ section hero {
   @apply grid;
   grid-template-columns: .4fr .6fr;
 }
+
+:root {
+  --primary-color: #fce4ec;
+  --secondary-color: #6B4226;
+  --accent1-color: #4D2A18;
+  --accent2-color: #FFF8E7;
+  --accent3-color: #E8D8C3;
+  --neutral1-color: #FFFFFF;
+  --neutral2-color: #F5F5F5;
+  --neutral3-color: #CCCCCC;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+button {
+  color: var(--neutral1-color);
+}
+
+a {
+  color: var(--secondary-color);
+}
+
+.logo-container {
+  position: relative;
+  width: 36px;
+  height: 36px;
+}
+
+.shadow-custom {
+  box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.form-label {
+  @apply block text-gray-700 text-sm font-bold mb-2;
+}
+
+.form-input {
+  @apply shadow appearance-none border rounded w-full py-2 px-3 text-gray-700;
+}
+
+.btn-primary {
+  @apply bg-teal-500 text-white py-2 px-4 rounded;
+}

@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
@@ -13,6 +14,8 @@ export const metadata: Metadata = {
 };
 
 import { Providers } from './providers'
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 
 export default function RootLayout({
   children,
@@ -23,7 +26,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={roboto.className}>
         <Providers>
-          <main className={"max-w-3xl mx-auto p-4"}>{children}</main>
+          <Header />
+          <main>{children}</main>
+          <Footer />
         </Providers>
       </body>
     </html>
